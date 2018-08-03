@@ -1,8 +1,6 @@
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::plugins(cpp11)]]
 
-#define USE_RCPP_ARMADILLO
-
 #include "optim.hpp"
 
 /*

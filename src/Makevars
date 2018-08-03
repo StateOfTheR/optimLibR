@@ -1,9 +1,10 @@
 ## Largely inspired from
 ## - RcppCAF (https://github.com/grantbrown/RcppCAF/blob/master/src/Makevars)
 ## - RcppArmadillo
+## - FLAGS corrected by @kthohr
 
 OPTIMLIB_LIBS = -L../inst -loptimlib
-OPTIMLIB_CXXFLAGS = -I../inst/include
+OPTIMLIB_CXXFLAGS = -I../inst/include -DUSE_RCPP_ARMADILLO
 
 CXX_STD = CXX11
 PKG_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS) $(OPTIMLIB_CXXFLAGS)
