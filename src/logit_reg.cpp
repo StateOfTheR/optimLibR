@@ -67,6 +67,10 @@ double ll_fn(const arma::vec& vals_inp, arma::vec* grad_out, void* opt_data)
     return ll_fn_whess(vals_inp,grad_out,nullptr,opt_data);
 }
 
+//' logit_optim
+//'
+//' A simple example optimizing logit regression with optimLib gradient descent
+//'
 //' @export
 // [[Rcpp::export]]
 Rcpp::NumericVector logit_optimLib() {

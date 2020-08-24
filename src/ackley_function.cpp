@@ -19,6 +19,9 @@ double ackley_fn(const arma::vec& vals_inp, arma::vec* grad_out, void* opt_data)
     return obj_val;
 }
 
+//' logit_optim
+//'
+//' A simple example optimizing logit regression with optimLib gradient descent
 //' @export
 // [[Rcpp::export]]
 Rcpp::NumericVector ackley_function()
@@ -42,7 +45,7 @@ Rcpp::NumericVector ackley_function()
         Rcpp::Rcout << "de: Ackley test completed unsuccessfully." << std::endl;
     }
 
-    Rcpp::Rout << "\nde: solution to Ackley test:\n" << x << arma::endl;
+    Rcpp::Rcout << "\nde: solution to Ackley test:\n" << x << arma::endl;
 
     return Rcpp::wrap(x);
 }
