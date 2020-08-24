@@ -111,14 +111,6 @@ Rcpp::NumericVector logit_optimLib() {
     std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end-start;
 
-    //
-    if (success) {
-        Rcpp::Rcout << "Adam: logit_reg test completed successfully.\n"
-                  << "elapsed time: " << elapsed_seconds.count() << "s\n";
-    } else {
-        Rcpp::Rcout << "Adam: logit_reg test completed unsuccessfully." << std::endl;
-    }
-
     Rcpp::Rcout << "\nAdam: true values vs estimates:\n" << arma::join_rows(theta_0,x) << std::endl;
 
     //
@@ -132,15 +124,6 @@ Rcpp::NumericVector logit_optimLib() {
 
     end = std::chrono::system_clock::now();
     elapsed_seconds = end-start;
-
-    //
-
-    if (success) {
-        Rcpp::Rcout << "newton: logit_reg test completed successfully.\n"
-                  << "elapsed time: " << elapsed_seconds.count() << "s\n";
-    } else {
-        Rcpp::Rcout << "newton: logit_reg test completed unsuccessfully." << std::endl;
-    }
 
     Rcpp::Rcout << "\nnewton: true values vs estimates:\n" << arma::join_rows(theta_0,x) << std::endl;
 
