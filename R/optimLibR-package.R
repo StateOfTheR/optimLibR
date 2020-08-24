@@ -1,5 +1,5 @@
-#' @useDynLib optimLibR
-#' @importFrom Rcpp sourceCpp
-#' @import RcppArmadillo
+## usethis namespace: start
+#' @useDynLib optimLibR, .registration = TRUE
+#'## usethis namespace: end
 NULL
 
