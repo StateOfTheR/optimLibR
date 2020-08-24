@@ -45,7 +45,7 @@ Rcpp::NumericVector ackley_function()
         Rcpp::Rcout << "de: Ackley test completed unsuccessfully." << std::endl;
     }
 
-    Rcpp::Rcout << "\nde: solution to Ackley test:\n" << x << arma::endl;
+    Rcpp::Rcout << "\nde: solution to Ackley test:\n" << x << std::endl;
 
     return Rcpp::wrap(x);
 }

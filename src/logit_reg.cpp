@@ -108,8 +108,6 @@ Rcpp::NumericVector logit_optimLib() {
 
     bool success = optim::gd(x,ll_fn,&opt_data,settings);
 
-    Rcpp::Rcout << "foutre\n" << std::endl ;
-
     std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end-start;
 
@@ -121,7 +119,7 @@ Rcpp::NumericVector logit_optimLib() {
         Rcpp::Rcout << "Adam: logit_reg test completed unsuccessfully." << std::endl;
     }
 
-    Rcpp::Rcout << "\nAdam: true values vs estimates:\n" << arma::join_rows(theta_0,x) << arma::endl;
+    Rcpp::Rcout << "\nAdam: true values vs estimates:\n" << arma::join_rows(theta_0,x) << std::endl;
 
     //
     // run Newton-based optim
@@ -144,7 +142,7 @@ Rcpp::NumericVector logit_optimLib() {
         Rcpp::Rcout << "newton: logit_reg test completed unsuccessfully." << std::endl;
     }
 
-    Rcpp::Rcout << "\nnewton: true values vs estimates:\n" << arma::join_rows(theta_0,x) << arma::endl;
+    Rcpp::Rcout << "\nnewton: true values vs estimates:\n" << arma::join_rows(theta_0,x) << std::endl;
 
     return Rcpp::wrap(x);
 }
