@@ -1,42 +1,13 @@
-## Largely inspired from
-## - RcppCAF (https://github.com/grantbrown/RcppCAF/blob/master/src/Makevars)
-## - RcppArmadillo
-## - FLAGS corrected by @kthohr
+PKG_CXXFLAGS = -I../inst/include -DUSE_RCPP_ARMADILLO
+PKG_LIBS= $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
 
-OPTIMLIB_LIBS = -L../inst -loptimlib
-OPTIMLIB_CXXFLAGS = -I../inst/include -DUSE_RCPP_ARMADILLO
-
+## With R 3.1.0 or later, you can uncomment the following line to tell R to
+## enable compilation with C++11 (where available)
+##
+## Also, OpenMP support in Armadillo prefers C++11 support. However, for wider
+## availability of the package we do not yet enforce this here.  It is however
+## recommended for client packages to set it.
+##
+## And with R 3.4.0, and RcppArmadillo 0.7.960.*, we turn C++11 on as OpenMP
+## support within Armadillo prefers / requires it
 CXX_STD = CXX11
-PKG_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS) $(OPTIMLIB_CXXFLAGS)
-PKG_LIBS = $(SHLIB_OPENMP_CFLAGS) $(OPTIMLIB_LIBS) $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
-
-SOURCES = ackley_function.cpp logit_reg.cpp RcppExports.cpp
-OBJECTS = $(SOURCES:.cpp=.o)
-
-SOURCES_OPTIMLIB= ./RcppExports.cpp \
-./optimLib/constrained/sumt.cpp \
-./optimLib/line_search/more_thuente.cpp \
-./optimLib/unconstrained/bfgs.cpp \
-./optimLib/unconstrained/cg.cpp \
-./optimLib/unconstrained/de.cpp \
-./optimLib/unconstrained/de_prmm.cpp \
-./optimLib/unconstrained/gd.cpp \
-./optimLib/unconstrained/lbfgs.cpp \
-./optimLib/unconstrained/newton.cpp \
-./optimLib/unconstrained/nm.cpp \
-./optimLib/unconstrained/pso.cpp \
-./optimLib/unconstrained/pso_dv.cpp \
-./optimLib/zeros/broyden.cpp
-
-OBJECTS_OPTIMLIB = $(SOURCES_OPTIMLIB:.cpp=.o)
-
-all: $(SHLIB) ../inst/liboptimlib.a
-
-$(SHLIB): $(OBJECTS) ../inst/liboptimlib.a
-
-../inst/liboptimlib.a: $(OBJECTS_OPTIMLIB)
-	ar -rvs ../inst/liboptimlib.a $(OBJECTS_OPTIMLIB)
-
-clean:
-	rm -f $(SHLIB) $(OBJECTS)
-
