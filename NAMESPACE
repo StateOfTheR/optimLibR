@@ -2,6 +2,4 @@
 
 export(ackley_function)
 export(logit_optimLib)
-import(RcppArmadillo)
-importFrom(Rcpp,sourceCpp)
-useDynLib(optimLibR)
+useDynLib(optimLibR, .registration = TRUE)

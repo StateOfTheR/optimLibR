@@ -8,10 +8,10 @@ Authors@R:
            comment = c(ORCID = "0000-0002-3629-3429")),
       person(given = "Saint-Clair", family = "Chabert-Liddell", role = c("aut"),
            email = "saint-clair.chabert-liddell@inrae.fr"))
-Description: Provides an interface to Keith's Ohara optimLib C++ library 
+Description: Provides an interface to Keith's Ohara optimLib C++ library.
 License: Apache License (>= 2.0)
 Encoding: UTF-8
 LazyData: true
 LinkingTo: Rcpp, RcppArmadillo
-Imports: Rcpp, RcppArmadillo
-RoxygenNote: 6.0.1
+Imports: Rcpp
+RoxygenNote: 7.1.1
