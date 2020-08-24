@@ -36,13 +36,13 @@ Rcpp::NumericVector ackley_function()
     std::chrono::duration<double> elapsed_seconds = end-start;
 
     if (success) {
-        std::cout << "de: Ackley test completed successfully.\n"
+        Rcpp::Rcout << "de: Ackley test completed successfully.\n"
                   << "elapsed time: " << elapsed_seconds.count() << "s\n";
     } else {
-        std::cout << "de: Ackley test completed unsuccessfully." << std::endl;
+        Rcpp::Rcout << "de: Ackley test completed unsuccessfully." << std::endl;
     }
 
-    arma::cout << "\nde: solution to Ackley test:\n" << x << arma::endl;
+    Rcpp::Rout << "\nde: solution to Ackley test:\n" << x << arma::endl;
 
     return Rcpp::wrap(x);
 }
