@@ -19,11 +19,10 @@ library](https://github.com/kthohr/optim).
 
 ## Installation
 
-You can install the released version of optimLibR from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the devlopment version of optimLibR from github:
 
 ``` r
-install.packages("optimLibR")
+devtools::install_github("StateOfTheR/optimLibR")
 ```
 
 ## Motivations
